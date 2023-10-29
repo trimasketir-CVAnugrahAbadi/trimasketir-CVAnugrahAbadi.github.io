@@ -33,7 +33,7 @@ class ItemCard extends HTMLElement {
 
     render() {
         let item = `
-            <div class="card m-2" style="width: 18rem;">
+            <div class="card mt-2 mb-2" style="width: 18rem;">
                 <img src="img/products/${this.image}" class="card-img-top" alt="${this.image}">
                 <div class="card-body">
                     <h5 class="card-title">${this.title}</h5>
