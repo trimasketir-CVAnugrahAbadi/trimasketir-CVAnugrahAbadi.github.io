@@ -79,11 +79,26 @@
             productData.forEach(product => {
                 let value = getValue(product)
                 if(value != 0) {
-                    orders.push(`${product} (${value})`)
+                    orders.push(`${product} (${value} pcs)`)
                 }
             });
 
             return orders.join(', ');
+        }
+
+        const submit = async (formData) => {
+            const url = `https://docs.google.com/forms/u/0/d/e/1FAIpQLSe4iDIUZBUbs6FqGyPKW-ilQKdGZEAqOgu_7oZWB6Dn0Mp_-Q/formResponse`
+            const config = {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            };
+
+            const res = await fetch(url, config);
+            const resJson = await res.json();
+            console.log(resJson);
+
+            return
         }
 
         document
@@ -101,17 +116,18 @@
                 let order = getOrder();
 
                 let formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-                
-                let body = {
-                    name,
-                    address,
-                    contact,
-                    formattedDate,
-                    payment,
-                    order,
-                }
 
-                console.log(body);
+                let formData = new FormData();
+                formData.append('entry.905955681', name);
+                formData.append('entry.1657378942', address);
+                formData.append('entry.1187015346', contact);
+                formData.append('entry.1006008153', order);
+                formData.append('entry.559757659', formattedDate);
+                formData.append('entry.1851296930', payment);
+                
+                submit(formData);
+
+                location.replace(location.href);
         });
     </script>
 </body>
