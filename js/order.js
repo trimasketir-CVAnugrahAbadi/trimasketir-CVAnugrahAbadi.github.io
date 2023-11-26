@@ -4,9 +4,10 @@ const getTableBody = (productData) => {
     productData.forEach(product => {
         tableBody += `
             <tr>
-                <td>${product}</td>
+                <td>${product.name}</td>
+                <td>Rp. ${product.price}</td>
                 <td>
-                    <input class="form-control" type="number" id="${product}" value="0">
+                    <input class="form-control" type="number" id="${product.name}" value="0">
                 </td>
             </tr>
         `;
@@ -23,6 +24,7 @@ const getTableForm = (productData) => {
             <thead>
                 <tr>
                     <th scope="col">Produk</th>
+                    <th scope="col">Harga</th>
                     <th scope="col">Jumlah</th>
                 </tr>
             </thead>
