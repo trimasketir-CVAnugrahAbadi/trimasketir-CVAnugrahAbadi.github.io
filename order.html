@@ -78,9 +78,9 @@
             const orders = [];
 
             productData.forEach(product => {
-                let value = getValue(product)
+                let value = getValue(product.name)
                 if(value != 0) {
-                    orders.push(`${product} (${value} pcs)`)
+                    orders.push(`${product.name} (${value} pcs)`)
                 }
             });
 
@@ -95,11 +95,18 @@
                 mode: 'no-cors'
             };
 
-            const res = await fetch(url, config);
-            const resJson = await res.json();
-            console.log(resJson);
-
-            return
+            await fetch(url, config).then((response) => {
+                if (response.status >= 400 && response.status < 600) {
+                    alert("Maaf, order gagal");
+                }
+                return
+            }).then(() => {
+                alert("Order Berhasil!");
+                var redirect = location.href;
+                location.replace(redirect.replace("/order.html", "/index.html"));
+            }).catch((error) => {
+                console.log(error);
+            });
         }
 
         document
@@ -127,8 +134,6 @@
                 formData.append('entry.1851296930', payment);
                 
                 submit(formData);
-
-                location.replace(location.href);
         });
     </script>
 </body>
