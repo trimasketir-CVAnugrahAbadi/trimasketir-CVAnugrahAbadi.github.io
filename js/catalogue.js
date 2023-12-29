@@ -2,7 +2,7 @@ const getCard = (product) => {
     return`
         <div class="col">
             <div class="card mt-2 mb-2" style="width: 18rem;">
-                <img src="img/products/${product.image}" class="card-img-top" alt="${product.image}">
+                <img src="img/products/${product.image}" class="card-img-top" alt="${product.image}" style="width:286px;height:160px;">
                 <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text">Rp. ${product.price}</p>
