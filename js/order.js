@@ -1,3 +1,10 @@
+const formatRupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+    }).format(number);
+}
+
 const getTableBody = (productData) => {
     let tableBody = ``;
 
@@ -5,7 +12,7 @@ const getTableBody = (productData) => {
         tableBody += `
             <tr>
                 <td>${product.name}</td>
-                <td>Rp. ${product.price}</td>
+                <td>${formatRupiah(product.price)}</td>
                 <td>
                     <input class="form-control" type="number" id="${product.name}" value="0">
                 </td>

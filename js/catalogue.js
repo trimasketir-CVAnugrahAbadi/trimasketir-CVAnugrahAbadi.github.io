@@ -1,3 +1,10 @@
+const formatRupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+    }).format(number);
+}
+
 const getCard = (product) => {
     return`
         <div class="col">
@@ -5,7 +12,7 @@ const getCard = (product) => {
                 <img src="img/products/${product.image}" class="card-img-top" alt="${product.image}" style="width:286px;height:160px;">
                 <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
-                    <p class="card-text">Rp. ${product.price}</p>
+                    <p class="card-text">${formatRupiah(product.price)}</p>
                     <a href="order.html" class="btn btn-primary">Order Now</a>
                 </div>
             </div>
