@@ -29,7 +29,7 @@ const productData = [
   {"name": "Siku 5 x 5", "image": "siku.png", "price": 250000},
   {"name": "Siku 6 x 6", "image": "siku.png", "price": 420000},
   {"name": "UNP 5 cm", "image": "Besi UNP.png", "price": 275000},
-  {"name": "UNP 7 cm", "image": "Besi UNP.png", "price": 0},
+  // {"name": "UNP 7 cm", "image": "Besi UNP.png", "price": 0},
   {"name": "UNP 10 cm", "image": "Besi UNP.png", "price": 550000},
   {"name": "UNP 15 cm", "image": "Besi UNP.png", "price": 1350000},
   {"name": "WireMesh M 5C", "image": "Wiremash.png", "price": 325000},
