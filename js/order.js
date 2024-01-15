@@ -14,7 +14,7 @@ const getTableBody = (productData) => {
                 <td>${product.name}</td>
                 <td>${formatRupiah(product.price)}</td>
                 <td>
-                    <input class="form-control" type="number" id="${product.name}" value="0">
+                    <input class="form-control" type="number" id="${product.name}" value="0" min="0" pattern="[0-9]+">
                 </td>
             </tr>
         `;
